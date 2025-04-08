@@ -5,12 +5,12 @@ import { FiWind } from "react-icons/fi";
 const WeatherBox=()=>{
     return(
         <div className=" h-3/4 text-white text-center mt-[20px]">
-            <div className="flex justify-center items-center mb-[50px]">
+            <div className="flex justify-center items-center mb-[40px]">
             <TiWeatherPartlySunny color="white" size="90px"/>
             </div>
 <h1 className="text-5xl font-semibold">16°C</h1>
 <h1 className="text-5xl font-semibold">London</h1>
-<div className="flex justify-between mt-[10px]">
+<div className="flex justify-between mt-[20px]">
 <div>
 <MdOutlineWaves />
 <p>91%</p>
