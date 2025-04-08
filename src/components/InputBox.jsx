@@ -1,7 +1,7 @@
 
 const InputBox=()=>{
     return(
-        <input className="h-[50px] w-[250px] bg-white rounded-[20px]"
+        <input className="h-[50px] w-[270px] bg-white rounded-[30px]"
         />
     )
 }

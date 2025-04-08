@@ -1,15 +1,18 @@
+// import { useState } from "react";
+// import { TiWeatherPartlySunny } from "react-icons/ti";
 import InputBox from "./components/InputBox";
 import SearchBox from "./components/SearchBox";
 import WeatherBox from "./components/Weather";
 
 const App=()=>{
+
   return(
-    <div className="bg-blue-400 w-[380px] h-[450px] p-[30px]">
-      <div className="flex">
+    <div className="border w-[380px] h-[450px] px-[20px] py-[40px] bg-blue-400">
+      <div className="flex justify-between">
       <InputBox />
       <SearchBox />
       </div>
-      <WeatherBox />
+      <WeatherBox/>
     </div>
   )
 }
