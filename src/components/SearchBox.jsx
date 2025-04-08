@@ -1,8 +1,10 @@
+import { IoSearch } from "react-icons/io5";
 
 const SearchBox=()=>{
     return(
         <div>
-            search
+        <IoSearch />
+
         </div>
     )
 }
