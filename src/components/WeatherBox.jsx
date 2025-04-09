@@ -3,6 +3,7 @@ import { TiWeatherPartlySunny } from "react-icons/ti";
 import { FiWind } from "react-icons/fi";
 
 const WeatherBox=({weatherValue})=>{
+
     console.log(weatherValue);
     
 if(!weatherValue){

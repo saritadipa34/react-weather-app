@@ -6,15 +6,17 @@ import WeatherBox from "./components/WeatherBox";
 
 const App=()=>{
 const [weatherData,setWeatherData]=useState(null);
+const [inputValue,setInputValue]=useState('');
 console.log(weatherData)
 
-const handleInput=()=>{
-
-  console.log("input")
+const handleInput=(e)=>{
+const inputData=e.target.value;
+setInputValue(inputData);
+  console.log("input");
 }
 
 const handleSearch=()=>{
-  console.log("click")
+  console.log("click");
 }
 
   useEffect(()=>{
@@ -35,7 +37,7 @@ console.log(error.message);
   return(
     <div className="border w-[380px] h-[450px] px-[20px] py-[40px] bg-blue-400">
       <div className="flex justify-between">
-      <InputBox onChange={handleInput} />
+      <InputBox onChange={handleInput} Value={inputValue} />
       <SearchBox weather={weatherData} onClick={handleSearch}/>
       </div>
       <WeatherBox weatherValue={weatherData}/>
