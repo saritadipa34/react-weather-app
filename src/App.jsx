@@ -9,6 +9,8 @@ const [weatherData,setWeatherData]=useState(null);
 const [inputValue,setInputValue]=useState('');
 const [search,setSearch]=useState('bhubaneswar');
 const [error,setError]=useState(false);
+const [loading,setLoading]=useState(false);
+
 
 console.log(weatherData)
 
@@ -22,6 +24,7 @@ console.log("input");
 const handleSearch=()=>{
 setSearch(inputValue);
 setInputValue('');
+setLoading(true);
 console.log("click");
 }
 
@@ -34,9 +37,10 @@ const data=await response.json();
 
 if(response.status !== 200){
   setError(true);
-} else{
+} else {
   console.log(data);
   setWeatherData(data);
+  setLoading(false);
   setError(false);
 }
 
@@ -49,15 +53,16 @@ console.log(error.message);
     getData();
   },[search]);
 
+
   return(
     <div className="border w-[380px] h-[450px] px-[20px] py-[40px] bg-blue-400">
       <div className="flex justify-between">
       <InputBox onChange={handleInput} Value={inputValue} />
       <SearchBox weather={weatherData} onClick={handleSearch} Error={error}/>
       </div>
-      { error && <p className="text-red-800 text-md text-center">City Not Found</p>}
-
-      <WeatherBox weatherValue={weatherData}/>
+{loading && !error && <p className="text-white text-center">loading.....</p>}
+  { error &&  <p className="text-red-800 text-md text-center">City Not Found</p>}
+      <WeatherBox weatherValue={weatherData} />
     </div>
   )
 }

@@ -4,15 +4,21 @@ import { TiWeatherCloudy } from "react-icons/ti";
 import { FiWind } from "react-icons/fi";
 import { TiWeatherShower } from "react-icons/ti";
 import { TiWeatherSunny } from "react-icons/ti";
+import { useState } from "react";
 
 const WeatherBox=({weatherValue})=>{
-    
     console.log(weatherValue);
     
 if(!weatherValue){
    return <div className=" w-full h-[300px] text-white text-4xl flex justify-center items-center">
-No Data Available
+Loading......
    </div>
+}
+
+{
+    if(!weatherValue.weather[0].main ){
+        setSearchResult(true);
+    }
 }
 
 const weatherIcon =()=>{
@@ -40,7 +46,7 @@ const humidity=main.humidity;
 const temperature=(main.temp - 273.15).toFixed(1);
 
     return(
-        <div className=" h-3/4 text-white text-center mt-[20px]">
+        <div className="h-3/4 text-white text-center mt-[20px]">
             <div className="flex justify-center items-center mb-[40px]">
            <div className="text-[90px]">{weatherIcon()}</div>
             </div>
