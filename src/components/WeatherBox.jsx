@@ -4,15 +4,15 @@ import { TiWeatherCloudy } from "react-icons/ti";
 import { FiWind } from "react-icons/fi";
 import { TiWeatherShower } from "react-icons/ti";
 import { TiWeatherSunny } from "react-icons/ti";
-import { useState } from "react";
 
 const WeatherBox=({weatherValue})=>{
-
-
+    
     console.log(weatherValue);
     
 if(!weatherValue){
-   return <div></div>
+   return <div className=" w-full h-[300px] text-white text-4xl flex justify-center items-center">
+No Data Available
+   </div>
 }
 
 const weatherIcon =()=>{
@@ -32,6 +32,7 @@ return      <TiWeatherSunny />;
 }
 }
 
+
 const {name,wind,main}=weatherValue;
 const cityName=name;
 const windSpeed=wind.speed;
@@ -41,7 +42,7 @@ const temperature=(main.temp - 273.15).toFixed(1);
     return(
         <div className=" h-3/4 text-white text-center mt-[20px]">
             <div className="flex justify-center items-center mb-[40px]">
-           <div className="text-6xl">{weatherIcon()}</div>
+           <div className="text-[90px]">{weatherIcon()}</div>
             </div>
 <h1 className="text-5xl font-semibold">{temperature}°C</h1>
 <h1 className="text-5xl font-semibold">{cityName}</h1>

@@ -8,12 +8,14 @@ const App=()=>{
 const [weatherData,setWeatherData]=useState(null);
 const [inputValue,setInputValue]=useState('');
 const [search,setSearch]=useState('bhubaneswar');
+const [error,setError]=useState(false);
 
 console.log(weatherData)
 
 const handleInput=(e)=>{
 const inputData=e.target.value;
 setInputValue(inputData);
+
 console.log("input");
 }
 
@@ -29,22 +31,32 @@ console.log("click");
       try{
 const response=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${apiKey}`);
 const data=await response.json();
-console.log(data);
-setWeatherData(data);
+
+if(response.status !== 200){
+  setError(true);
+} else{
+  console.log(data);
+  setWeatherData(data);
+  setError(false);
+}
 
       } catch (error){
+        setError(true);
+        setWeatherData(null);
 console.log(error.message);
       }
     }
     getData();
-  },[search])
+  },[search]);
 
   return(
     <div className="border w-[380px] h-[450px] px-[20px] py-[40px] bg-blue-400">
       <div className="flex justify-between">
       <InputBox onChange={handleInput} Value={inputValue} />
-      <SearchBox weather={weatherData} onClick={handleSearch}/>
+      <SearchBox weather={weatherData} onClick={handleSearch} Error={error}/>
       </div>
+      { error && <p className="text-red-800 text-md text-center">City Not Found</p>}
+
       <WeatherBox weatherValue={weatherData}/>
     </div>
   )
