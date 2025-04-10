@@ -26,12 +26,12 @@ const temperature=(main.temp - 273.15).toFixed(1);
 <div className="flex justify-between mt-[20px]">
 <div>
 <MdOutlineWaves />
-<p>{humidity}%</p>
+<p className="text-left">{humidity}%</p>
 <p>Humidity</p>
 </div>
 <div>
 <FiWind />
-<p>{windSpeed}Km/h</p>
+<p className="text-left">{windSpeed}Km/h</p>
 <p>Wind Speed</p>
 </div>
 </div>
