@@ -1,8 +1,8 @@
 import { FaSearch } from "react-icons/fa";
 
-const SearchBox=()=>{
+const SearchBox=({onClick})=>{
     return(
-<div className="h-12 w-14 cursor-pointer border rounded-full flex items-center justify-center">
+<div onClick={onClick} className="h-12 w-14 cursor-pointer border rounded-full flex items-center justify-center">
 <FaSearch />
 </div>
     )
