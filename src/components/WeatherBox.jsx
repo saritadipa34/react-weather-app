@@ -1,8 +1,23 @@
 import { TiWeatherPartlySunny } from "react-icons/ti";
 import { MdOutlineWaves } from "react-icons/md";
 import { FaWind } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 const WeatherBox=()=>{
+const [search,setSearch]=useState("Bhubaneswar");
+
+const getData=async()=>{
+    const api_key=import.meta.env.VITE_API_KEY;
+    const response=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${api_key}`);
+    const data=await response.json();
+    console.log(data);
+}
+
+useEffect(()=>{
+    getData();
+    setSearch(search)
+},[search]);
+
     return(
         <div>
             <div className="h-1/4 w-full flex my-7 items-center text-white justify-center">
