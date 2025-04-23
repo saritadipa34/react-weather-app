@@ -1,5 +1,6 @@
 import InputBox from "./components/InputBox";
 import SearchBox from "./components/SearchBox";
+import WeatherBox from "./components/WeatherBox";
 
 const App=()=>{
   return(
@@ -8,6 +9,10 @@ const App=()=>{
       <InputBox />
       <SearchBox />
       </div>
+    <WeatherBox />
+      
+              
+
     </div>
   )
 }
