@@ -10,7 +10,6 @@ const [search,setSearch]=useState("Bhubaneswar");
 const [loading,setLoading]=useState(false);
 const [error,setError]=useState(false);
 
-
 const handleClick=()=>{
   if(inputValue.trim() === "")return;
   setSearch(inputValue);
@@ -27,7 +26,7 @@ setLoading(true);
 setError(false);
     const getData=async()=>{
   try{ 
-    // if(inputValue.trim() === "")  return;
+
         const api_key=import.meta.env.VITE_API_KEY;
         const response=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${api_key}`);
         const data=await response.json();
@@ -64,7 +63,7 @@ setError(false);
   :
 
   (weatherData &&  (
-    <WeatherBox error={error} setError={setError} weatherData={weatherData} inputValue={inputValue} setInputValue={setInputValue}/>
+    <WeatherBox  error={error} setError={setError} weatherData={weatherData} inputValue={inputValue} setInputValue={setInputValue}/>
      ))
   }
   
